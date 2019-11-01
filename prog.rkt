@@ -40,13 +40,27 @@
     (display (suit->string c))
     (display "\n")
 )
-(define tmp (list))
-(for ([i 52])
 
-    (let ([c (make-card i)])
-        (set! tmp (append tmp (list c)))
-        (print-card c)
+(define (make-deck)
+    ;; create an empty list
+    (let ([tmp (list)])
+        ;; get 52 cards
+        (for ([i 52])
+            ;; create a new card
+            (let ([c (make-card i)])
+                ;; maybe this is not the best way?
+                (set! tmp (append tmp (list c)))
+                ;; print card so we know we did it
+                ;; (print-card c)
+            )
+        )
+        ;; return the shuffled list of cards
+        (shuffle tmp)
     )
 )
 
-(display tmp)
+(let ([d (make-deck)])
+
+    (display d)
+    (display "\n")
+)
