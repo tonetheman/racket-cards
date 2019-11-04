@@ -54,10 +54,17 @@
     )
 )
 
+(define (draw-card deck)
+    (define topcard (car deck))
+    (display topcard)
+    (cdr deck)
+)
+
 (let ([d (make-deck)])
     (for ([i 52])
         (display i)
         (display "\n")
     )
+    (display "--------------------\n")
+    (draw-card d)
 )
-
